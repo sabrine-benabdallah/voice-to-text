@@ -1,30 +1,17 @@
 package com.example.voicerecognitionapp;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import android.content.Intent;
-import android.os.Bundle;
-import android.speech.RecognizerIntent;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import com.google.android.material.button.MaterialButton;
 import java.util.ArrayList;
 
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -88,13 +75,13 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
-            // Get results from the Intent
             ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
 
             if (result != null && !result.isEmpty()) {
-                String text = result.get(0); // Get the first result
-                txtResult.append(text + "\n"); // Append the recognized text to the TextView
+                String text = result.get(0);
+                txtResult.setText(text);
             }
         }
     }
+
 }
